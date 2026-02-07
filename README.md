@@ -1,6 +1,6 @@
 # Timeline Orchestration
 
-## A New Paradigm for Game Design and Game Technology
+## A New Paradigm for Game Design and Technology
 
 This is the central repository of **Timeline Orchestration**,
 which is a game design and technology paradigm.
@@ -89,7 +89,7 @@ impart a new fluency to play.
     A[Player Input & Current State]
     end
 
-    subgraph "The Central System (10Hz Cycle)"
+    subgraph "The Central System"
     B{Orchestration Engine}
     A --> B
     
@@ -274,7 +274,7 @@ only its leading edge, which may change abruptly as the canonical timeline updat
 
 ```mermaid
   graph LR
-    subgraph "Logical Reality (Low Fidelity)"
+    subgraph "Canonical Timeline"
     A[Discretized Time: 10 FPS]
     B[Sparse Spatial Grid]
     C[Programmer Shapes / Hitboxes]
@@ -282,7 +282,7 @@ only its leading edge, which may change abruptly as the canonical timeline updat
 
     A & B & C --> D{Translation Phase}
 
-    subgraph "Canonical Presentation (High Fidelity)"
+    subgraph "Canonical Presentation"
     E[Interpolation & Smoothing]
     F[Motion Rejittering]
     G[Dynamic Camera Angles]
@@ -441,6 +441,15 @@ a method for cinematic action, and a unifying framework for future game design.
 
 ```mermaid
 flowchart TB
+  subgraph "Traditional Paradigm"
+    T_In[Gamepad Input] -->|Direct Mapping| T_Act[Move Vector]
+    T_Act -->|Physics Check| T_Res[Result]
+    T_Note[Requires: Micromanagement, Aiming, Reflexes]
+  end
+```
+
+```mermaid
+flowchart TB
   subgraph "Timeline Orchestration Paradigm"
     O_In[Gamepad Input] -->|Interpreted Intent| O_Sys[Central System]
 
@@ -451,14 +460,5 @@ flowchart TB
     O_Act --> O_Res[Result: Cinematic Success/Failure]
 
     O_Note[Focus: Strategy, Flow, 'Cool' Factor]
-  end
-```
-
-```mermaid
-flowchart TB
-  subgraph "Traditional Paradigm"
-    T_In[Gamepad Input] -->|Direct Mapping| T_Act[Move Vector]
-    T_Act -->|Physics Check| T_Res[Result]
-    T_Note[Requires: Micromanagement, Aiming, Reflexes]
   end
 ```
