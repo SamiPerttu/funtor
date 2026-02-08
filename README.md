@@ -2,7 +2,7 @@
 
 ## A New Paradigm for Game Design and Technology
 
-This is the central repository of **Timeline Orchestration**,
+This is FunTOR, the central repository of **timeline orchestration**,
 which is a game design and technology paradigm.
 Implementations of the various relevant algorithms will be prepared
 here in the Rust programming language under a permissive open source license.
@@ -142,7 +142,7 @@ High-level prescriptions can be applied directly (e.g., “this attack has a 50%
 or derived from tactical information uncovered during planning, with minimal reliance on prescriptive
 mechanics.
 
-For example, the system can detect that the player character is likely to die in the near future
+For example, the system can detect that the player character is likely to perish in the near future
 and issue warnings or adjust difficulty accordingly. It can estimate success probabilities for
 encounters or events in advance and tune outcomes to match intended difficulty.
 
@@ -219,6 +219,7 @@ Elements influenced only sparsely by the player:
 - Large-scale dynamics (wind, lava, massive creatures)
 
 The background evolves largely independently and is simulated along a single chosen timeline.
+Typically, influencing the evolution of the background involves explicit player intervention.
 
 ### Foreground
 
@@ -226,6 +227,7 @@ Elements requiring flexibility during planning:
 
 - Player characters
 - NPCs
+- Monsters
 
 The background timeline is established first and then referenced during foreground orchestration.
 This allows detailed background simulations (e.g., fluid dynamics) to inform tactical planning
@@ -233,7 +235,7 @@ without exploding computational cost.
 
 ```mermaid
   graph TD
-    subgraph "Plane 1: Background (Computed First)"
+    subgraph "Plane 1: Background"
     B1[Static Geometry: Walls]
     B2[Dynamic Elements: Lava, Wind]
     B3[Untouchable Monsters: Giant Worms]
@@ -241,7 +243,7 @@ without exploding computational cost.
     B1 & B2 & B3 --- B_Logic
     end
 
-    subgraph "Plane 2: Foreground (Computed Second)"
+    subgraph "Plane 2: Foreground"
     F1[Player Character]
     F2[Active Monsters]
     F3[Projectiles]
@@ -251,7 +253,7 @@ without exploding computational cost.
 
     B_Logic -->|Provides Context & Constraints| F_Logic
     
-    note[Optimization: Detailed physics allowed in Background\nas it is not searched, only sampled once.]
+    note[Optimization: Detailed physics allowed in Background as it is not searched, only sampled once.]
     B_Logic -.- note
 ```
 
@@ -267,7 +269,7 @@ This phase may:
 - Interpolate motion
 - Add dramatic camera work
 - Compose adaptive soundtracks
-- Retiming or rejittering movement
+- Retime or rejitter movement
 
 The final audiovisual output is called the **canonical presentation**. The player perceives
 only its leading edge, which may change abruptly as the canonical timeline updates.
@@ -359,7 +361,7 @@ while improving efficiency.
 - Simulation → Timeline Orchestration
 - Present State → Canonical Timeline
 - Heuristic AI → Timeline Search
-- Automated Playtesting → Automatic Content Generation
+- Manual Playtesting → Automated Playtesting and Content Generation
 
 ---
 
