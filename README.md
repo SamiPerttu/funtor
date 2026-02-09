@@ -156,7 +156,7 @@ under a single central system.
 Control schemes are a deep feature of design. By decoupling control and execution,
 we can support unique control styles while reducing production costs.
 
-Direct control offers limited expressiveness: moving a gamepad directly moves an orc.
+Direct control offers limited expressiveness: moving a gamepad directly moves the player character.
 Tactical control allows richer interpretations of input:
 
 - Goals
